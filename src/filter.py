@@ -45,15 +45,16 @@ class Filter:
         self.o = B / C
 
     def __initStates(self):
-        self.y_1 = 0
-        self.x_1 = 0
+        self.__setLastStates(0, 0)
 
     def calculateOutput(self, input):
         x = input
         y = self.p * (x + self.x_1) - self.o * self.y_1
-
         # Update states for next time
-        self.x_1 = x
-        self.y_1 = y
-
+        self.__setLastStates(x, y)
         return y
+
+    def __setLastStates(self, x_1, y_1):
+        self.x_1 = x_1
+        self.y_1 = y_1
+
