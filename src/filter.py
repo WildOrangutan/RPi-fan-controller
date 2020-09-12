@@ -31,15 +31,10 @@ Additional notes:
 class Filter:
 
     def __init__(self, T, Tf):
-        self.T = T
-        self.Tf = Tf
-        self.__calcConstants()
+        self.__calcConstants(T, Tf)
         self.__initStates()
 
-    def __calcConstants(self):
-        T = self.T
-        Tf = self.Tf
-
+    def __calcConstants(self, T, Tf):
         A = T
         B = T - 2*Tf
         C = T + 2*Tf
