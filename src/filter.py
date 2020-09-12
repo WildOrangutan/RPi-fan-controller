@@ -23,6 +23,9 @@ Or in short:
             A                     B
     y(k) = --- (x(k) + x(k-1)) - --- y(k-1)  =  P * (x(k) + x(k-1)) - O * y(k-1)
             C                     C
+
+Additional notes:
+- "x(k-1)", for example, is named as a variable as "x_1"
 """
 
 class Filter:
