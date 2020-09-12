@@ -21,7 +21,7 @@ Discrete transformation of that functions, by approximating "s" with
 
 Or in short:
             A                     B
-    y(k) = --- (x(k) + x(k-1)) - --- y(k-1)  =  p * (x(k) + x(k-1)) - o * y(k-1)
+    y(k) = --- (x(k) + x(k-1)) - --- y(k-1)  =  P * (x(k) + x(k-1)) - O * y(k-1)
             C                     C
 """
 
@@ -41,15 +41,15 @@ class Filter:
         B = T - 2*Tf
         C = T + 2*Tf
 
-        self.p = A / C
-        self.o = B / C
+        self.P = A / C
+        self.O = B / C
 
     def __initStates(self):
         self.__setLastStates(0, 0)
 
     def calculateOutput(self, input):
         x = input
-        y = self.p * (x + self.x_1) - self.o * self.y_1
+        y = self.P * (x + self.x_1) - self.O * self.y_1
         # Update states for next time
         self.__setLastStates(x, y)
         return y
