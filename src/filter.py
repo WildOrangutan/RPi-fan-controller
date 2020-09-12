@@ -26,6 +26,7 @@ Or in short:
 
 Additional notes:
 - "x(k-1)", for example, is named as a variable as "x_1"
+- smaller the T constant, more accurate the output becomes
 """
 
 class Filter:
