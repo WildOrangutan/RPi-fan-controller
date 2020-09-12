@@ -38,7 +38,6 @@ class Filter:
         A = T
         B = T - 2*Tf
         C = T + 2*Tf
-
         self.P = A / C
         self.O = B / C
 
@@ -55,4 +54,3 @@ class Filter:
     def __setLastStates(self, x_1, y_1):
         self.x_1 = x_1
         self.y_1 = y_1
-
