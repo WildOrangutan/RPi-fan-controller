@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-import src.check as check
 
 @dataclass
 class ProfilePoint:
@@ -11,7 +10,11 @@ class ProfilePoint:
         self.__validatePwm()
 
     def __validateTemp(self):
-        check.range("Temp", self.temp, 0, 100)
+        self.__validateRange("Temp", self.temp, 0, 100)
 
     def __validatePwm(self):
-        check.range("PWM", self.pwm, 0, 100)
+        self.__validateRange("PWM", self.pwm, 0, 100)
+    
+    def __validateRange(self, valueName, value, min, max):
+        if value<min or value>max:
+            raise ValueError(f"{valueName} should be {min} and {max}")
