@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import src.check as check
 
-class FanDriver:
+class Fan:
 
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
