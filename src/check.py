@@ -5,3 +5,7 @@ def range(valueName, value, min=None, max=None):
         raise ValueError(f"{valueName} should be smaller than {min}")
     if max!=None and value>max:
         raise ValueError(f"{valueName} should be bigger than {max}")
+
+def notNone(valueName, value):
+    if value==None:
+        raise ValueError(f"'{valueName}' was {value}")

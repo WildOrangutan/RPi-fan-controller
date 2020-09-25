@@ -27,3 +27,11 @@ class TestCheck(unittest.TestCase):
 
     def __checkRange(self, value, min=None, max=None):
         check.range("Fart", value, min, max)
+
+    def test_none(self):
+        self.__checkNotNone(1)
+        with self.assertRaises(ValueError):
+            self.__checkNotNone(None)
+    
+    def __checkNotNone(self, value):
+        check.notNone("", value)
