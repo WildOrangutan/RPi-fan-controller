@@ -17,7 +17,7 @@ class TestCheck(unittest.TestCase):
         self._checkRangeErr(-1, max=-2)
         # Invalid min max
         self._checkRangeErr(0, min=2, max=1)
-        self._checkRangeErr(0, -2, -3)
+        self._checkRangeErr(0, min=-2, max=-3)
     
     def _checkRangeErr(self, value, min=None, max=None):
         with self.assertRaises(ValueError):
