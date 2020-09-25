@@ -2,18 +2,18 @@ class Filter:
     """
     This is simple low-pass filter of 1st order. Transfer function in s-domain is:
 
-                1
+                   1
         G(s) = ----------
-            (1 + Tf*s)
+               (1 + Tf*s)
 
         Tf - filter time constant
 
     Discrete transformation of that functions, by approximating "s" with
     2*(z-1) / T*(z+1) is:
 
-                T                       T - T*Tf
+                  T                       T - T*Tf
         y(k) = -------- (x(k) + x(k-1)) - -------- y(k-1)
-            T + 2*Tf                   T + 2*Tf
+               T + 2*Tf                   T + 2*Tf
 
         y(k)   - current output value
         x(k)   - current input value
