@@ -31,26 +31,26 @@ class Filter:
     """
 
     def __init__(self, T, Tf):
-        self.__calcConstants(T, Tf)
-        self.__initStates()
+        self._calcConstants(T, Tf)
+        self._initStates()
 
-    def __calcConstants(self, T, Tf):
+    def _calcConstants(self, T, Tf):
         A = T
         B = T - 2*Tf
         C = T + 2*Tf
         self.P = A / C
         self.O = B / C
 
-    def __initStates(self):
-        self.__setLastStates(0, 0)
+    def _initStates(self):
+        self._setLastStates(0, 0)
 
     def calculateOutput(self, input):
         x = input
         y = self.P * (x + self.x_1) - self.O * self.y_1
         # Update states for next time
-        self.__setLastStates(x, y)
+        self._setLastStates(x, y)
         return y
 
-    def __setLastStates(self, x_1, y_1):
+    def _setLastStates(self, x_1, y_1):
         self.x_1 = x_1
         self.y_1 = y_1
