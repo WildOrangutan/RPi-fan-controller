@@ -35,7 +35,6 @@ class Looper:
                 self._checkWorkedTooLong()
                 self._sleepTillNextPeriod()
         except _TooMuchWorkException:
-            self._stop.set()
             self._failed.set()
         finally:
             self._running.clear()
